@@ -6,6 +6,9 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +19,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -74,7 +78,17 @@ public class HibernateConfiguration {
 				.getRequiredProperty(PROPERTY_NAME_DATABASE_PASSWORD));
 		return dataSource;
 	}
-
+	
+//	@Component
+//	class MyDataSource extends DriverManagerDataSource implements InitializingBean
+//	{
+//		private String bla;
+//		@Override
+//		public void afterPropertiesSet() throws Exception {
+//			bla = "asdad";
+//		}
+//	}
+  
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();

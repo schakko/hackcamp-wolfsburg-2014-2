@@ -6,7 +6,7 @@ package de.wolfsburg.hackcamp.configuration;
  * @author Schakko
  */
 public final class Packages {
-	public final static String BASE = "de.wolfsburg.hackcamp";
+	public final static String BASE = "de.wolfsburg.hackcamp"; //Packages.class.getName();
 	public final static String WEB_COMPONENTS = BASE;
 	public final static String COMPONENTS = BASE;
 	public final static String CONFIGURATIONS = BASE + ".configuration";

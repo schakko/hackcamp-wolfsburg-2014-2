@@ -10,10 +10,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import de.wolfsburg.hackcamp.RootPackage;
 import de.wolfsburg.hackcamp.configuration.Packages;
 
 @Configuration
-@ComponentScan(Packages.WEB_COMPONENTS)
+@ComponentScan(Packages.BASE)
 @EnableWebMvc
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 	@Override

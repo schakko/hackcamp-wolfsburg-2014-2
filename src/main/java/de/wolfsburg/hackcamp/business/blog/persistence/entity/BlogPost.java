@@ -1,6 +1,5 @@
 package de.wolfsburg.hackcamp.business.blog.persistence.entity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
+import org.joda.time.LocalDateTime;
 import org.springframework.util.Assert;
 
 import de.wolfsburg.hackcamp.business.user.persistence.entity.User;
@@ -41,7 +41,7 @@ public class BlogPost {
 	@JoinColumn
 	private User author;
 
-	@OneToMany
+	@ManyToMany
 	private List<Category> categories = new ArrayList<Category>();
 
 	public BlogPost() {
